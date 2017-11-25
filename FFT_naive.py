@@ -28,10 +28,10 @@ def fft_naive(l, w):
     lo = [l[2*i + 1] for i in range(round(n/2))]
     rese = fft_naive(le, w**2)
     reso = fft_naive(lo, w**2)
-    res = np.zeros(n)
+    res = [0] * n
     for i in range(round(n/2)):
         res[i] = rese[i] + (w**i) * reso[i]
-        res[n/2 + i] = rese[i] - (w**i) * reso[i]
+        res[round(n/2) + i] = rese[i] - (w**i) * reso[i]
     return res
 
 
